@@ -2,7 +2,7 @@
 
 Generate test files and directories
 
-![Screenshot](./Screenshot.gif)
+![Screenshot](https://raw.githubusercontent.com/ajoelp/vscode-test-generator/master/screenshot.gif)
 
 ## Configuration
 
