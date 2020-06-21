@@ -18,6 +18,6 @@ jobs:
     - name: Compile
       run: npm run compile
     - name: Publish to marketplace
-      run: npm run deploy
+      run: npm run deploy -- $VSCE_PAT
       env:
-        VSCE_PAT: $
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
