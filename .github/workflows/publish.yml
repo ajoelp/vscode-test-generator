@@ -16,7 +16,7 @@ jobs:
     - name: "Install Deps"
       run: npm ci
     - name: Compile
-      run: npm compile
+      run: npm run compile
     - name: Publish to marketplace
       uses: lannonbr/vsce-action@master
       with:
