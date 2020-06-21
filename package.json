@@ -4,7 +4,7 @@
 	"description": "Generate test files in directories",
 	"publisher": "joelpod",
 	"repository": "git@github.com:ajoelp/vscode-test-generator.git",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
