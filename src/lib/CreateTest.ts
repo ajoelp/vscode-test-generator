@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as fs from "fs-extra";
 import Log from "./Log";
-import AbstractVSCode from "./AbstractVSCode";
+import AbstractVSCode from "./vscode/AbstractVSCode";
 
 export default class CreateTest {
   sourceFile: string;
@@ -21,10 +21,21 @@ export default class CreateTest {
     );
   }
 
-  get fileName() {
+  get extension() {
     const extension = path.extname(this.sourceFile);
-    const basename = path.basename(this.sourceFile, extension);
-    return `${basename}.${this.vscode.fileSuffix}${extension}`;
+    if (extension === ".vue") {
+      return this.vscode.isTypescriptProject ? ".ts" : ".js";
+    }
+    return extension;
+  }
+
+  get basename() {
+    const extension = path.extname(this.sourceFile);
+    return path.basename(this.sourceFile, extension);
+  }
+
+  get fileName() {
+    return `${this.basename}.${this.vscode.fileSuffix}${this.extension}`;
   }
 
   get pathName() {
@@ -47,7 +58,7 @@ export default class CreateTest {
         throw new Error("File already exists");
       }
       await fs.writeFile(this.pathName, "");
-      await this.vscode.openFile(this.pathName);
+      await this.vscode.openFile(this.pathName, this.basename);
     } catch (e) {
       Log.error(e.message);
       throw e;

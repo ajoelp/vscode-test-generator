@@ -3,7 +3,10 @@
 	"displayName": "Test Generator",
 	"description": "Generate test files in directories",
 	"publisher": "joelpod",
-	"repository": "git@github.com:ajoelp/vscode-test-generator.git",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ajoelp/vscode-test-generator.git"
+	},
 	"version": "1.1.0",
 	"engines": {
 		"vscode": "^1.46.0"
@@ -14,6 +17,7 @@
 	"activationEvents": [
 		"onCommand:test-generator.generateTest"
 	],
+	"icon": "icon.png",
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
@@ -43,6 +47,11 @@
 					"when": "resourceLangId == javascriptreact",
 					"command": "test-generator.generateTest",
 					"group": "2_workspace"
+				},
+				{
+					"when": "resourceLangId == vue",
+					"command": "test-generator.generateTest",
+					"group": "2_workspace"
 				}
 			]
 		},
@@ -67,6 +76,11 @@
 					"type": "string",
 					"default": "./src",
 					"desciption": "Root directory for your code"
+				},
+				"test-generator.testSnippet": {
+					"type": "array",
+					"default": null,
+					"desciption": "Test snippet"
 				}
 			}
 		}

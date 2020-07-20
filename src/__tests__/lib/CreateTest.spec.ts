@@ -1,6 +1,6 @@
 import CreateTest from "../../lib/CreateTest";
 import * as fs from "fs-extra";
-import MockedVSCode from "../../lib/MockedVSCode";
+import MockedVSCode from "../../lib/vscode/MockedVSCode";
 import * as path from "path";
 
 jest.mock("../../lib/Log", () => {
@@ -24,7 +24,8 @@ describe("CreateTest", () => {
       ""
     );
     expect(vscode.openFile).toHaveBeenCalledWith(
-      relativePath("__tests__/app/file.spec.ts")
+      relativePath("__tests__/app/file.spec.ts"),
+      "file"
     );
   });
 
@@ -38,7 +39,8 @@ describe("CreateTest", () => {
       ""
     );
     expect(vscode.openFile).toHaveBeenCalledWith(
-      relativePath("./src/app/file.spec.ts")
+      relativePath("./src/app/file.spec.ts"),
+      "file"
     );
   });
 });

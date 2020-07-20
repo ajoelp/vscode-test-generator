@@ -4,7 +4,12 @@ abstract class AbstractVSCode {
   abstract get fileSuffix(): string;
   abstract get testDirectory(): string;
   abstract get noTestDirectory(): boolean;
-  abstract openFile(path: string): void;
+  abstract get testSnippet(): string[];
+  abstract openFile(path: string, basename: string): void;
+
+  get isTypescriptProject(): boolean {
+    return false;
+  }
 }
 
 export default AbstractVSCode;

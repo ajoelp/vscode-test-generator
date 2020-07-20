@@ -37,5 +37,10 @@ export default class MockedVSCode extends AbstractVSCode {
   get noTestDirectory(): boolean {
     return this.noTestDir;
   }
+
+  get testSnippet(): string[] {
+    return [];
+  }
+
   openFile = jest.fn();
 }
