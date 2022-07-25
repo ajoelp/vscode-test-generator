@@ -59,7 +59,7 @@ export default class CreateTest {
       }
       await fs.writeFile(this.pathName, "");
       await this.vscode.openFile(this.pathName, this.basename);
-    } catch (e) {
+    } catch (e: any) {
       Log.error(e.message);
       throw e;
     }
